@@ -33,8 +33,8 @@ export default function Hero() {
                         </div>
                     </Box>
                     <img
-                        src="/images/logo.png"
-                        className="absolute left-0 top-20 size-[155px]"
+                        src="/images/logo.svg"
+                        className="absolute left-0 top-20 size-[155px] opacity-30"
                     />
                 </div>
             </div>
