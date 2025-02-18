@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import MobileMenu from "./MobileMenu";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState("home");
+    const [scrolled, setScrolled] = useState(false);
 
     const NavLinks = [
         {
@@ -53,11 +55,19 @@ export default function Navbar() {
             if (element) observer.observe(element);
         });
 
+        // Handle scroll for navbar background
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
         return () => {
             NavLinks.forEach((link) => {
                 const element = document.getElementById(link.section);
                 if (element) observer.unobserve(element);
             });
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
@@ -70,40 +80,66 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-0 px-4 md:px-0 w-full pt-8 pb-2 z-50 bg-[#282C33]/80 backdrop-blur-sm">
-            <div className="max-w-5xl mx-auto flex justify-between items-center">
-                <a
+        <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className={`fixed top-0 w-full pt-8 pb-4 z-50 transition-all duration-300 ${
+                scrolled
+                    ? "bg-background/95 backdrop-blur-sm shadow-lg"
+                    : "bg-transparent"
+            }`}
+        >
+            <div className="max-w-5xl mx-auto px-4 flex justify-between items-center">
+                {/* Logo */}
+                <motion.a
                     href="/"
-                    className="flex items-center gap-2 text-base font-bold text-white"
+                    className="flex items-center gap-2 text-base font-medium text-white group"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
                 >
                     <img
                         src="/images/logo.svg"
                         alt="Logo"
-                        className="w-6 h-6 object-contain"
+                        className="w-6 h-6 object-contain transition-transform group-hover:rotate-90 duration-300"
                     />
-                    Mphatso
-                </a>
+                    <span className="group-hover:text-primary transition-colors">
+                        Mphatso
+                    </span>
+                </motion.a>
+
+                {/* Mobile Menu */}
                 <div className="md:hidden">
                     <MobileMenu />
                 </div>
-                <div className="space-x-6 hidden md:flex">
+
+                {/* Desktop Navigation */}
+                <div className="space-x-6 hidden md:flex items-center">
                     {NavLinks.map((link) => (
-                        <a
+                        <motion.a
                             href={link.href}
-                            className={`text-base hover:text-purple-400 transition-colors duration-200 ${
+                            className={`text-base hover:text-primary transition-colors duration-200 relative ${
                                 activeSection === link.section
                                     ? "text-white"
-                                    : "text-gray-400"
+                                    : "text-grey"
                             }`}
                             key={link.href}
                             onClick={(e) => handleClick(e, link.href)}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.2 }}
                         >
-                            <span className="text-purple-400">#</span>
+                            <span className="text-primary">#</span>
                             {link.name}
-                        </a>
+                            {activeSection === link.section && (
+                                <motion.div
+                                    className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"
+                                    layoutId="underline"
+                                />
+                            )}
+                        </motion.a>
                     ))}
                 </div>
             </div>
-        </nav>
+        </motion.nav>
     );
 }

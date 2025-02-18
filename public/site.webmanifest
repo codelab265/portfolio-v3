@@ -1,0 +1,17 @@
+{
+    "name": "Mphatso Mlenga - Full Stack Developer",
+    "short_name": "Mphatso Mlenga",
+    "description": "Full Stack Developer specializing in web and mobile app development",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#282C33",
+    "theme_color": "#282C33",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/images/logo.svg",
+            "type": "image/svg+xml",
+            "sizes": "512x512"
+        }
+    ]
+} 

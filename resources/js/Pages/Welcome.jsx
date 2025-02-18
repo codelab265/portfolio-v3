@@ -14,7 +14,6 @@ export default function Welcome() {
     return (
         <div className="bg-[#282C33] text-gray-200 min-h-screen relative">
             <Head title="Home" />
-
             <Navbar />
             <Hero />
             <Quote />
