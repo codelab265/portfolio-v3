@@ -16,7 +16,7 @@ function Social() {
         },
         {
             icon: faFacebook,
-            href: "https://www.facebook.com/mphatso.mlenga",
+            href: "https://web.facebook.com/mphatso.mlenga.908",
         },
         {
             icon: faWhatsapp,
@@ -24,21 +24,16 @@ function Social() {
         },
         {
             icon: faLinkedin,
-            href: "https://www.linkedin.com/in/mphatso-mlenga-0101010101/",
+            href: "https://www.linkedin.com/in/mphatso-mlenga-9b969b235/",
         },
     ];
     return (
         <div className="hidden md:flex flex-col items-center gap-4 absolute top-0 left-[17px] z-50">
             <div className="h-[191px] w-[1px] bg-grey" />
-            {socialLinks.map((link) => (
-                <BlurFade
-                    key={link.href}
-                    delay={0.1 * socialLinks.indexOf(link)}
-                    inView
-                    className="w-10 h-10"
-                >
+            {socialLinks.map((link, index) => (
+                <BlurFade key={link.href} delay={0.1 * index}>
                     <a href={link.href}>
-                        <FontAwesomeIcon icon={link.icon} size="lg" />
+                        <FontAwesomeIcon icon={link.icon} size="xl" />
                     </a>
                 </BlurFade>
             ))}

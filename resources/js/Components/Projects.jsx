@@ -2,6 +2,7 @@ import ProjectCard from "./ProjectCard";
 import ContainerWrapper from "./ContainerWrapper";
 import { BlurFade } from "./magicui/blur-fade";
 import { QuoteIcon } from "lucide-react";
+import { Link } from "@inertiajs/react";
 
 const projects = [
     {
@@ -40,12 +41,12 @@ export default function Projects() {
                         <div className="w-full h-[1px] bg-primary" />
                     </div>
                     <div className="col-span-4 flex items-center justify-end">
-                        <a
-                            href="#"
+                        <Link
+                            href={route("projects")}
                             className="text-white hover:text-purple-400 transition-colors hover:underline underline-offset-8"
                         >
                             View all →
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 md:px-0">

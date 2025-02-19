@@ -10,11 +10,11 @@ import Footer from "../Components/Footer";
 import { Head } from "@inertiajs/react";
 import { Testimonial } from "@/Components/Testimonial";
 import Social from "@/Components/Social";
+import MainLayout from "@/Layouts/MainLayout";
 export default function Welcome() {
     return (
-        <div className="bg-[#282C33] text-gray-200 min-h-screen relative">
+        <MainLayout>
             <Head title="Home" />
-            <Navbar />
             <Hero />
             <Quote />
             <Projects />
@@ -22,8 +22,6 @@ export default function Welcome() {
             <About />
             <Testimonial />
             <Contact />
-            <Footer />
-            <Social />
-        </div>
+        </MainLayout>
     );
 }

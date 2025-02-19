@@ -1,4 +1,6 @@
 import ContainerWrapper from "./ContainerWrapper";
+import { motion } from "framer-motion";
+import Box from "./Box";
 
 export default function About() {
     return (
@@ -18,24 +20,49 @@ export default function About() {
                                 Hello, I'm Mphatso!
                             </p>
                             <p className="text-grey text-sm md:text-base">
-                                I'm a self-taught full-stack developer based in
-                                Malawi. I can develop responsive websites from
-                                scratch and raise them into modern user-friendly
-                                web experiences.
+                                I'm a full-stack developer from Malawi who
+                                builds web and mobile applications. I work on
+                                both the front-end (what users see) and back-end
+                                (how it works). I turn ideas into easy-to-use
+                                applications that help businesses grow.
                             </p>
                             <p className="text-grey text-sm md:text-base">
-                                Transforming my creativity and knowledge into
-                                websites has been my passion for over 3 years. I
-                                have been helping various clients to establish
-                                their presence online. I always strive to learn
-                                about the newest technologies and frameworks.
+                                I've been coding for over 10 years and have
+                                built many different types of projects - from
+                                online stores to business management systems. I
+                                use modern tools like React for websites, React
+                                Native for mobile apps, and Laravel and Node.js
+                                for the backend. I keep learning new things to
+                                give my clients the best solutions.
                             </p>
-                            <button className="mt-4 px-4 py-2 border border-primary text-white hover:bg-primary transition-all duration-300 hover:scale-105">
-                                Read more →
-                            </button>
+                            <p className="text-grey text-sm md:text-base">
+                                I care about writing good code that's easy to
+                                maintain and update. I make sure everything is
+                                well-organized and properly documented, so
+                                projects run smoothly now and in the future. I
+                                enjoy solving complex problems and making things
+                                work better.
+                            </p>
+                            <motion.a
+                                href="#contacts"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="inline-block mt-4 px-4 py-2 border border-primary text-white hover:bg-primary transition-all duration-300"
+                            >
+                                Contact Me
+                            </motion.a>
                         </div>
                     </div>
-                    <div className="relative col-span-12 md:col-span-5 mt-8 md:mt-0">
+                    <div className="relative flex justify-center items-center col-span-12 md:col-span-5 mt-8 md:mt-0">
+                        <img
+                            src="/images/hero2.png"
+                            alt="About Mphatso"
+                            className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+                        />
+                        <div className="absolute -top-1 -left-1 size-2 bg-primary" />
+                        <div className="absolute -bottom-1 -right-1 size-2 bg-primary" />
+
+                        {/* Decorative elements */}
                         <img
                             src="/images/dots.png"
                             className="absolute top-10 left-10 w-16 md:w-20 opacity-50 z-0"
@@ -46,16 +73,11 @@ export default function About() {
                             className="absolute bottom-10 right-10 w-16 md:w-20 opacity-50 z-0"
                             alt="Decorative dots"
                         />
-                        <div className="relative h-[300px] md:h-[386px] overflow-hidden">
-                            <img
-                                src="/images/hero2.png"
-                                alt="About Mphatso"
-                                className="w-full h-full object-contain border-b border-primary transition-transform duration-300 hover:scale-105"
-                            />
-                        </div>
                     </div>
                 </div>
             </ContainerWrapper>
+
+            {/* Background decorative elements */}
             <img
                 src="/images/dots.png"
                 className="hidden md:block absolute top-1/2 right-0 -translate-y-1/2 w-20 opacity-50"
