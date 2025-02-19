@@ -3,34 +3,11 @@ import MainLayout from "@/Layouts/MainLayout";
 import ContainerWrapper from "@/Components/ContainerWrapper";
 import ProjectCard from "@/Components/ProjectCard";
 import { ArrowLeftIcon } from "lucide-react";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { BlurFade } from "@/Components/magicui/blur-fade";
 
 function Projects() {
-    const projects = [
-        {
-            title: "ChertNodes",
-            description: "Minecraft servers hosting",
-            image: "/images/projects/protectx.webp",
-            technologies: ["HTML", "SCSS", "Python", "Flask"],
-            liveLink: "#",
-            cacheLink: "#",
-        },
-        {
-            title: "ProtectX",
-            description: "Discord anti-crash bot",
-            image: "/images/projects/protectx.webp",
-            technologies: ["React", "Express", "Discord.js", "Node.js"],
-            liveLink: "#",
-        },
-        {
-            title: "Kahoot Answers Viewer",
-            description: "Get answers to your kahoot quiz",
-            image: "/images/projects/protectx.webp",
-            technologies: ["CSS", "Express", "Node.js"],
-            liveLink: "#",
-        },
-    ];
+    const { projects } = usePage().props;
     return (
         <MainLayout>
             <ContainerWrapper className="py-20 px-4 md:px-0">

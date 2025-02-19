@@ -2,49 +2,8 @@ import { cn } from "@/lib/utils";
 import { Marquee } from "./magicui/marquee";
 import Box from "./Box";
 import ContainerWrapper from "./ContainerWrapper";
-
-const reviews = [
-    {
-        name: "Jack",
-        username: "@jack",
-        body: "I've never seen anything like this before. It's amazing. I love it.",
-        img: "https://avatar.vercel.sh/jack",
-    },
-    {
-        name: "Jill",
-        username: "@jill",
-        body: "I don't know what to say. I'm speechless. This is amazing.",
-        img: "https://avatar.vercel.sh/jill",
-    },
-    {
-        name: "John",
-        username: "@john",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/john",
-    },
-    {
-        name: "Jane",
-        username: "@jane",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/jane",
-    },
-    {
-        name: "Jenny",
-        username: "@jenny",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/jenny",
-    },
-    {
-        name: "James",
-        username: "@james",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/james",
-    },
-];
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-
-const ReviewCard = ({ img, name, username, body }) => {
+import { usePage } from "@inertiajs/react";
+const ReviewCard = ({ user, company, rating, message }) => {
     return (
         <Box
             className={cn(
@@ -53,30 +12,42 @@ const ReviewCard = ({ img, name, username, body }) => {
             )}
         >
             <div className="flex flex-row items-center gap-2">
-                <img
-                    className="rounded-full"
-                    width="32"
-                    height="32"
-                    alt=""
-                    src={img}
-                />
+                {user.profile_picture ? (
+                    <img
+                        className="rounded-full"
+                        width="32"
+                        height="32"
+                        alt=""
+                        src={user.profile_picture}
+                    />
+                ) : (
+                    <img
+                        className="rounded-full"
+                        width="32"
+                        height="32"
+                        alt=""
+                        src="/images/google.svg"
+                    />
+                )}
                 <div className="flex flex-col">
                     <figcaption className="text-sm font-medium dark:text-white">
-                        {name}
+                        {user.name}
                     </figcaption>
                     <p className="text-xs font-medium dark:text-white/40">
-                        {username}
+                        {company}
                     </p>
                 </div>
             </div>
             <blockquote className="mt-2 text-sm line-clamp-3">
-                {body}
+                {message}
             </blockquote>
         </Box>
     );
 };
 
 export function Testimonial() {
+    const { reviews } = usePage().props;
+
     return (
         <ContainerWrapper>
             <div className="flex items-center gap-4 mb-12 px-4 md:px-0">
@@ -87,8 +58,8 @@ export function Testimonial() {
             </div>
             <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
                 <Marquee pauseOnHover className="[--duration:20s]">
-                    {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
+                    {reviews.map((review) => (
+                        <ReviewCard key={review.id} {...review} />
                     ))}
                 </Marquee>
 

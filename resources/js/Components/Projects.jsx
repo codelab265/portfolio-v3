@@ -1,35 +1,10 @@
 import ProjectCard from "./ProjectCard";
 import ContainerWrapper from "./ContainerWrapper";
 import { BlurFade } from "./magicui/blur-fade";
-import { QuoteIcon } from "lucide-react";
-import { Link } from "@inertiajs/react";
-
-const projects = [
-    {
-        title: "ChertNodes",
-        description: "Minecraft servers hosting",
-        image: "/images/projects/protectx.webp",
-        technologies: ["HTML", "SCSS", "Python", "Flask"],
-        liveLink: "#",
-        cacheLink: "#",
-    },
-    {
-        title: "ProtectX",
-        description: "Discord anti-crash bot",
-        image: "/images/projects/protectx.webp",
-        technologies: ["React", "Express", "Discord.js", "Node.js"],
-        liveLink: "#",
-    },
-    {
-        title: "Kahoot Answers Viewer",
-        description: "Get answers to your kahoot quiz",
-        image: "/images/projects/protectx.webp",
-        technologies: ["CSS", "Express", "Node.js"],
-        liveLink: "#",
-    },
-];
+import { Link, usePage } from "@inertiajs/react";
 
 export default function Projects() {
+    const { projects } = usePage().props;
     return (
         <section id="works" className="py-20 w-full relative">
             <ContainerWrapper>
