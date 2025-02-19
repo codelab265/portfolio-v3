@@ -28,7 +28,7 @@ class ControlPanelPanelProvider extends PanelProvider
             ->path('control-panel')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Hex('#C778DD'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -40,6 +40,8 @@ class ControlPanelPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
+            ->topNavigation()
+            ->spa()
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

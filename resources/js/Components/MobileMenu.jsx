@@ -41,6 +41,11 @@ function MobileMenu() {
             href: "/#contacts",
             section: "contacts",
         },
+        {
+            name: "Reviews",
+            href: "/reviews",
+            section: "reviews",
+        },
     ];
 
     const socialLinks = [
