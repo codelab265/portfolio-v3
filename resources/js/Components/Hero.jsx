@@ -10,7 +10,7 @@ export default function Hero() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-0">
                 <div className="pt-10 md:pt-[74px]">
                     <h1 className="text-[32px] font-medium text-white">
-                        Am Mphatso, a <span className="text-primary">Web</span>{" "}
+                        I'm Mphatso, a <span className="text-primary">Web</span>{" "}
                         and <span className="text-primary">Mobile</span> App
                         Developer
                     </h1>
